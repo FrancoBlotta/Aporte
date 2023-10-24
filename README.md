@@ -1,25 +1,49 @@
 #Ejercicios academicos en Java sobre Hilos
 
+CLASE HILO
+package vmc.tp2hilos;
+
+public class Hilo implements Runnable{
+    String name;
+    
+    Hilo(String nombre){
+        name=nombre;
+    }
+    
+    public void run(){
+        System.out.println("iniciando hilo "+name);
+        try {
+            for (int cont=0;cont<5;cont++){
+                int random = (int) (Math.random()* 2000 - 100 + 1) + 100;
+                Thread.sleep(random);
+                System.out.println("En el hilo " +name+ ", el recuento es "+cont);
+            }
+        } catch (InterruptedException exc){
+            System.out.println("Hilo " +name+ " interrumpido.");
+        }
+            System.out.println("Hilo " +name+ " finalizando.");
+    }
+}
+
+
+CLASE MAIN
 package vmc.tp2hilos;
 
 public class TP2hilos {
 
     public static void main(String[] args) {
         System.out.println("Iniciando hilo principal.");
-        Hilo hilo1 = new Hilo("#1");
-        Hilo hilo2 = new Hilo("#2");
-        Hilo hilo3 = new Hilo("#3");
         
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
+        Hilo hilo = new Hilo("#1");
+        
+        Thread nuevoHilo = new Thread(hilo);
+        
+        nuevoHilo.start();
         
         for (int i=0;i<10;i++){
             System.out.println("En el hilo principal, el recuento es "+i);
         try {
-                int max = 2000;
-                int min = 100;
-                int random = (int) (Math.random()* max - min + 1) + min;
+                int random = (int) (Math.random()* 2000 - 100 + 1) + 100;
                 Thread.sleep(random);
             }catch (InterruptedException exc) {
                System.out.println("Hilo principal interrumpido");
@@ -28,3 +52,4 @@ public class TP2hilos {
         System.out.println("Hilo principal finalizado");
     }
 }
+
