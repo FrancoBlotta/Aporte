@@ -1,0 +1,314 @@
+CLASE MAIN
+package tp2modelado;
+
+public class TP2Modelado {
+    public static void main(String[] args) {
+        
+        System.out.println("Inicializando objeto Agencia");
+        Agencia agencia = new Agencia();
+        agencia.getNombre();
+        agencia.getDireccion();
+        agencia.getTelefono();
+        agencia.setNombre();
+        agencia.setDireccion();
+        agencia.setTelefono();
+        
+        System.out.println();
+        System.out.println("Inicializando objeto Cliente");
+        Cliente cliente = new Cliente();
+        cliente.getId();
+        cliente.getDni();
+        cliente.getNombre();
+        cliente.getDireccion();
+        cliente.getTelefono();
+        cliente.setId();
+        cliente.setDni();
+        cliente.setNombre();
+        cliente.setDireccion();
+        cliente.setTelefono();
+        
+        System.out.println();
+        System.out.println("Inicializando objeto Reserva");
+        Reserva reserva = new Reserva();
+        reserva.getFechaInicio();
+        reserva.getFechaFinal();
+        reserva.getLitrosDeposito();
+        reserva.getPrecioFinal();
+        reserva.isEntregado();
+        reserva.setFechaInicio();
+        reserva.setFechaFinal();
+        reserva.setLitrosDeposito();
+        reserva.setPrecioFinal();
+        reserva.setEntregado();
+        
+        System.out.println();
+        System.out.println("Inicializando objeto Automovil");
+        Automovil automovil = new Automovil();
+        automovil.getPrecioAlquiler();
+        automovil.getMatricula();
+        automovil.getModelo();
+        automovil.getColor();
+        automovil.getMarca();
+        automovil.isDisponible();
+        automovil.setPrecioAlquiler();
+        automovil.setMatricula();
+        automovil.setModelo();
+        automovil.setColor();
+        automovil.setMarca();
+        automovil.setDisponible();
+        
+        System.out.println();
+        System.out.println("Inicializando objeto Garage");
+        Garage garage = new Garage();
+        garage.getCapacidad();
+        garage.getDireccion();
+        garage.setCapacidad();
+        garage.setDireccion();
+    }
+}
+
+CLASE AGENCIA
+package tp2modelado;
+
+public class Agencia {
+    private String nombre = "Agencia";
+    private String direccion = "San Lorenzo 254";
+    private String telefono = "3571 142536";
+    
+    public Agencia() {
+        this.nombre = "Agencia";
+        this.direccion = "San Lorenzo 254";
+        this.telefono = "3571 142536";
+    }
+    public String getNombre() {
+        System.out.println("El nombre de la agencia es "+nombre);
+        return nombre;
+    }
+    public String getDireccion() {
+        System.out.println("La direccion de la agencia es "+direccion);
+        return direccion;
+    }
+    public String getTelefono() {
+        System.out.println("El telefono de la agencia es "+telefono);
+        return telefono;
+    }
+    public void setNombre() {
+        System.out.println("[nombre de la agencia establecido]");
+    }
+    public void setDireccion() {
+        System.out.println("[direccion de la agencia establecida]");
+    }
+    public void setTelefono() {
+        System.out.println("[telefono de la agencia establecido]");
+    }
+}
+
+CLASE CLIENTE
+package tp2modelado;
+
+public class Cliente {
+    private int id;
+    private int dni;
+    private String nombre;
+    private String direccion;
+    private String telefono;
+    
+    public Cliente(){
+        this.id = 001;
+        this.dni = 30000000;
+        this.nombre = "Alberto";
+        this.direccion = "Acuña 234";
+        this.telefono = "3571 552244";
+    }
+
+    public int getId() {
+        System.out.println("El id del cliente es "+id);
+        return id;
+    }
+    public int getDni() {
+        System.out.println("El DNI del cliente es "+dni);
+        return dni;
+    }
+    public String getNombre() {
+        System.out.println("El nombre del cliente es "+nombre);
+        return nombre;
+    }
+    public String getDireccion() {
+        System.out.println("La direccion del cliente es "+direccion);
+        return direccion;
+    }
+    public String getTelefono() {
+        System.out.println("El telefono del cliente es "+telefono);
+        return telefono;
+    }
+    public void setId() {
+        System.out.println("[ID del cliente establecido]");
+    }
+    public void setDni() {
+        System.out.println("[DNI del cliente establecido]");
+    }
+    public void setNombre() {
+        System.out.println("[Nombre del cliente establecido]");
+    }
+    public void setDireccion() {
+        System.out.println("[Direccion del cliente establecida]");
+    }
+    public void setTelefono() {
+        System.out.println("[Telefono del cliente establecido]");
+    }
+}
+
+CLASE RESERVA
+package tp2modelado;
+
+import java.time.LocalDate;
+import java.time.Month;
+
+public class Reserva {
+    private LocalDate fechaInicio;
+    private LocalDate fechaFinal;
+    private int litrosDeposito;
+    private double precioFinal;
+    private boolean entregado;
+    
+    public Reserva(){
+        this.fechaInicio = LocalDate.of(2023, Month.MAY, 23);
+        this.fechaFinal = LocalDate.of(2023, Month.JUNE, 25);
+        this.litrosDeposito = 25;
+        this.precioFinal = 24570;
+        this.entregado = true;
+    }
+    public LocalDate getFechaInicio() {
+        System.out.println("La fecha de inicio de la reserva es "+fechaInicio);
+        return fechaInicio;
+    }
+    public LocalDate getFechaFinal() {
+        System.out.println("La fecha de final de la reserva es "+fechaFinal);
+        return fechaFinal;
+    }
+    public int getLitrosDeposito() {
+        System.out.println("Los litros del depósito del vehículo al momento del alquiler son "+litrosDeposito);
+        return litrosDeposito;
+    }
+    public double getPrecioFinal() {
+        System.out.println("El precio final del alquiler es de $"+precioFinal);
+        return precioFinal;
+    }
+    public boolean isEntregado() {
+        System.out.println("El vehículo ya fue entregado");
+        return entregado;
+    }
+    public void setFechaInicio() {
+        System.out.println("[Fecha Inicial establecida]");
+    }
+    public void setFechaFinal() {
+        System.out.println("[Fecha Final establecida]");
+    }
+    public void setLitrosDeposito() {
+        System.out.println("[LitrosDeposito establecido]");
+    }
+    public void setPrecioFinal() {
+        System.out.println("[PrecioFinal establecido]");
+    }
+    public void setEntregado() {
+        System.out.println("[Entregado establecido]");
+    }
+}
+
+CLASE AUTOMOVIL
+package tp2modelado;
+
+public class Automovil {
+    private double precioAlquiler;
+    private String matricula;
+    private String modelo;
+    private String color;
+    private String marca;
+    private boolean disponible;
+
+    public Automovil() {
+        this.precioAlquiler = 23150;
+        this.matricula = "AA 270 BA";
+        this.modelo = "2020";
+        this.color = "Rojo";
+        this.marca = "Fiat";
+        this.disponible = true;
+    }
+    public double getPrecioAlquiler() {
+        System.out.println("El precio del alquiler del vehículo es "+precioAlquiler);
+        return precioAlquiler;
+    }
+    public String getMatricula() {
+        System.out.println("La matricula del vehículo es "+matricula);
+        return matricula;
+    }
+    public String getModelo() {
+        System.out.println("El modelo del vehículo es "+modelo);
+        return modelo;
+    }
+    public String getColor() {
+        System.out.println("El color del vehículo es "+color);
+        return color;
+    }
+    public String getMarca() {
+        System.out.println("La marca del vehículo es "+marca);
+        return marca;
+    }
+    public boolean isDisponible() {
+        System.out.println("El vehículo está disponible");
+        return disponible;
+    }
+    public void setPrecioAlquiler() {
+        System.out.println("[Precio del alquiler establecido]");
+        this.precioAlquiler = precioAlquiler;
+    }
+    public void setMatricula() {
+        System.out.println("[Matricula establecida]");
+        this.matricula = matricula;
+    }
+    public void setModelo() {
+        System.out.println("[Modelo establecido]");
+        this.modelo = modelo;
+    }
+    public void setColor() {
+        System.out.println("[Colo establecido]");
+        this.color = color;
+    }
+    public void setMarca() {
+        System.out.println("[Marca establecida]");
+        this.marca = marca;
+    }
+    public void setDisponible() {
+        System.out.println("[Disponibilidad establecida]");
+        this.disponible = disponible;
+    }
+}
+
+CLASE GARAGE
+package tp2modelado;
+
+public class Garage {
+    private int capacidad;
+    private String direccion;
+    
+    public Garage(){
+        this.capacidad = 10;
+        this.direccion = "Colon 354";
+    }
+    public int getCapacidad() {
+        System.out.println("La capacidad del garage es de "+capacidad);
+        return capacidad;
+    }
+    public String getDireccion() {
+        System.out.println("La capacidad del garage es de "+capacidad);
+        return direccion;
+    }
+    public void setCapacidad() {
+        System.out.println("[Capacidad establecida]");
+    }
+    public void setDireccion() {
+        System.out.println("[Direccion establecida]");
+    }
+}
+
+
