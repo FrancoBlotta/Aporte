@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+//Realizar un programa que permita multiplicar matrices de hasta 3 por 3. Usar procedimientos, y
+//verificar las dimensiones de las matrices antes de hacer el producto.
+
+public class Ejercicio9 {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int filas = 4;
+        int columnas = 4;
+        
+        System.out.println("Ingrese la cantidad de filas");
+        filas = Verificar();
+        System.out.println("Ingrese la cantidad de columnas");
+        columnas = Verificar();
+        
+        int[][] matriz1 = new int[filas][columnas];
+        int[][] matriz2 = new int[filas][columnas];
+        int[][] matrizProducto = new int[filas][columnas];
+        
+        System.out.println("Ingrese los números de la matriz 1");
+        LlenarMatriz(matriz1);
+        System.out.println("Ingrese los números de la matriz 2");
+        LlenarMatriz(matriz2);
+        
+        MultiplicarMatriz(matriz1, matriz2, matrizProducto);
+        
+        System.out.println("Matriz 1");
+        ImprimirMatriz(matriz1);
+        System.out.println("Matriz 2");
+        ImprimirMatriz(matriz2);
+        System.out.println("Producto de las matrices");
+        ImprimirMatriz(matrizProducto);
+        
+    }
+    
+    
+    
+    //Método para verificar que las dimensiones ingresadas sean 2 o 3
+    static int Verificar(){
+        Scanner scanner = new Scanner(System.in);
+        int dimension = 0;
+        while(dimension>3 || dimension<2){
+            dimension = scanner.nextInt();
+            if (dimension>3 || dimension<2){
+                System.out.println("En este programa, las matrices solo pueden tener 2 o 3 filas/columnas. Intente nuevamente");
+            }
+        }
+        return dimension;
+    }
+    
+    //Método para que el usuario pueda llenar una matriz
+    static void LlenarMatriz(int[][] matriz){
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0;i<matriz.length;i++){
+            for (int j = 0;j<matriz[0].length;j++){
+                System.out.println("Ingrese el número de la fila "+(i+1)+" y la columna "+(j+1));
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+    }
+    
+    //Método para multiplicar las matrices
+    static void MultiplicarMatriz(int[][] matriz1, int[][] matriz2, int[][] matrizProducto){
+        for (int i = 0; i<matriz1.length; i++){
+            for (int j = 0;j<matriz1[0].length; j++){
+                for (int k = 0;k<matriz1[0].length; k++){
+                    matrizProducto[i][j] += matriz1[i][k] * matriz2[k][j];
+                }
+            }
+        }
+    }
+    
+    //Método para imprimir las matrices
+    static void ImprimirMatriz(int[][] matriz){
+        for (int i = 0;i<matriz.length;i++){
+            for (int j = 0;j<matriz[0].length;j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+    }
+}
